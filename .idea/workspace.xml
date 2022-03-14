@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7770eef4-fdb9-404b-be69-3abd72edeb58" name="Changes" comment="Added lstm autoencoder (first version)">
-      <change afterPath="$PROJECT_DIR$/autoencoders/networks/mlp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoders/datamodules/tickerdatamodule.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/datamodules/tickerdatamodule.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoencoders/networks/cae.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/networks/cae.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoencoders/networks/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/networks/lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoders/networks/mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/networks/mlp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoencoders/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -75,7 +75,7 @@ class Conv1dAutoEncoder(pl.LightningModule):
         return latent
 
     def predict_step(self, x):
-        return {"loss", torch.nn.MSELoss()(self.decoder(self(x)), x)}
+        return self(x)
 
     def training_step(self, batch, batch_idx):
         x = batch

@@ -61,6 +61,10 @@ class MLPAutoEncoder(LightningModule):
 
         self.time_start = time.time()
 
+    def predict_step(self, batch: Any) -> Any:
+        batch = batch.squeeze(1)
+        return self.encoder(batch)
+
     def forward(self, x: Tensor, *args, **kwargs) -> Any:
         x = x.squeeze(1)
         latent = self.encoder(x)
