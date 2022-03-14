@@ -1,4 +1,4 @@
-from autoencoders import Conv1dAutoEncoder, LSTMAutoEncoder, TickerDataModule
+from autoencoders import Conv1dAutoEncoder, LSTMAutoEncoder, TickerDataModule, MLPAutoEncoder
 
 from pytorch_lightning import Trainer
 
@@ -21,9 +21,20 @@ def test_lstm_encoder():
     trainer.fit(model, dm)
 
 
+def test_mlp_encoder():
+    model = MLPAutoEncoder(30, 8)
+    trainer = Trainer(gpus=1, max_epochs=100)
+
+    dm = TickerDataModule('..\\data\\ticker_data_Close.csv', batch_size=16)
+
+    trainer.fit(model, dm)
+    trainer.test(model, dm)
+
+
 if __name__ == '__main__':
     # test_conv_encoder()
-    test_lstm_encoder()
+    # test_lstm_encoder()
+    test_mlp_encoder()
 
 
 

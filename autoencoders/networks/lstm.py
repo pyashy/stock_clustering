@@ -61,19 +61,20 @@ class LSTMAutoEncoder(LightningModule):
         self.embedding_dim = embedding_dim
         self.time_start = time.time()
 
-    # TODO РА
+    # TODO Возврат эмбэддингов
     def forward(self, x: Tensor, *args, **kwargs) -> Any:
-        x = x.reshape((1, self.seq_len, self.n_features))
-        # print(x.shape)
+        batch_size = x.shape[0]
+        x = x.reshape((batch_size, self.seq_len, self.n_features))
         x, _ = self.encoder1(x)
         x, (hidden_n, _) = self.encoder2(x)
 
         h = hidden_n.reshape((self.n_features, self.embedding_dim))
-        h = h.repeat(self.seq_len, self.n_features)
+        h = h.repeat(self.seq_len, batch_size)
         h = h.reshape((self.n_features, self.seq_len, self.embedding_dim))
 
         h, _ = self.decoder1(h)
         h, _ = self.decoder2(h)
+        # print(h.shape)
         h = h.reshape((self.seq_len, self.embedding_dim * 2))
 
         return self.output_layer(h)

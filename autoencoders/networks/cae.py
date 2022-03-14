@@ -102,6 +102,7 @@ class Conv1dAutoEncoder(pl.LightningModule):
     def test_step(self, batch, batch_idx: int):
         x = batch
         latent = self(x)
+        print('teststsetasetas')
         loss = torch.nn.MSELoss()(self.decoder(latent), x)
         self.log("test_loss", loss, on_step=False, on_epoch=True, prog_bar=True)
         return {"loss": loss, "latent": latent}
