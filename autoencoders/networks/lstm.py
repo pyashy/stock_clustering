@@ -19,40 +19,26 @@ def init_weights(m):
 
 class LSTMAutoEncoder(LightningModule):
 
-    def __init__(self, seq_len, n_features, embedding_dim=16):
+    def __init__(self, seq_len, n_features, embedding_dim=16, num_layers: int = 10):
         super(LSTMAutoEncoder, self).__init__()
 
         self.encoder1 = nn.LSTM(input_size=n_features,
                                 hidden_size=embedding_dim * 2,
                                 num_layers=1,
-                                batch_first=True,
-                                dropout=0.3)
+                                batch_first=True)
         self.encoder2 = nn.LSTM(input_size=embedding_dim * 2,
                                 hidden_size=embedding_dim,
                                 num_layers=1,
-                                batch_first=True,
-                                dropout=0.3)
+                                batch_first=True)
 
         self.decoder1 = nn.LSTM(input_size=embedding_dim,
-                                hidden_size=embedding_dim,
-                                num_layers=1,
-                                batch_first=True,
-                                dropout=0.3)
-        self.decoder2 = nn.LSTM(input_size=embedding_dim,
                                 hidden_size=embedding_dim * 2,
                                 num_layers=1,
-                                batch_first=True,
-                                dropout=0.3)
-
-        # self.encoder = nn.Sequential(
-        #     nn.LSTM(input_size=n_features, hidden_size=embedding_dim * 2, num_layers=1, batch_first=True),
-        #     nn.LSTM(input_size=embedding_dim * 2, hidden_size=embedding_dim, num_layers=1, batch_first=True),
-        # )
-
-        # self.decoder = nn.Sequential(
-        #     nn.LSTM(input_size=embedding_dim, hidden_size=embedding_dim, num_layers=1, batch_first=True),
-        #     nn.LSTM(input_size=embedding_dim, hidden_size=embedding_dim * 2, num_layers=1, batch_first=True)
-        # )
+                                batch_first=True)
+        self.decoder2 = nn.LSTM(input_size=embedding_dim * 2,
+                                hidden_size=embedding_dim * 2,
+                                num_layers=1,
+                                batch_first=True)
 
         self.output_layer = nn.Linear(embedding_dim * 2, n_features)
 
@@ -64,24 +50,23 @@ class LSTMAutoEncoder(LightningModule):
     def predict_step(self, x: Any) -> Any:
         batch_size = x.shape[0]
         x = x.reshape((batch_size, self.seq_len, self.n_features))
-        x, _ = self.encoder1(x)
-        x, (hidden_n, _) = self.encoder2(x)
-        return hidden_n.reshape((self.n_features, self.embedding_dim))
+        x, (hidden_n, _) = self.encoder1(x)
+
+        return hidden_n[-1]
 
     def forward(self, x: Tensor, *args, **kwargs) -> Any:
         batch_size = x.shape[0]
+        # print(x.shape)
         x = x.reshape((batch_size, self.seq_len, self.n_features))
-        x, _ = self.encoder1(x)
+        # print(x.shape)
+        x, (hidden_n, _) = self.encoder1(x)
         x, (hidden_n, _) = self.encoder2(x)
 
-        h = hidden_n.reshape((self.n_features, self.embedding_dim))
-        h = h.repeat(self.seq_len, batch_size)
-        h = h.reshape((self.n_features, self.seq_len, self.embedding_dim))
-
+        h = hidden_n[-1].unsqueeze(0)
+        h = h.repeat(self.seq_len, 1, 1)
+        h = torch.permute(h, (1, 0, 2))
         h, _ = self.decoder1(h)
         h, _ = self.decoder2(h)
-        # print(h.shape)
-        h = h.reshape((self.seq_len, self.embedding_dim * 2))
 
         return self.output_layer(h)
 
@@ -97,6 +82,8 @@ class LSTMAutoEncoder(LightningModule):
 
     def validation_step(self, batch: Tensor, *args, **kwargs) -> Optional[STEP_OUTPUT]:
         batch_rec = self(batch)
+        # print(batch.shape)
+        # print(batch_rec.shape)
         loss = torch.nn.MSELoss()(batch_rec, batch)
 
         self.log('val_loss', loss, on_step=False, on_epoch=True, prog_bar=True)
@@ -113,13 +100,13 @@ class LSTMAutoEncoder(LightningModule):
         optimizer = torch.optim.Adam(self.parameters(), lr=0.003)
 
         def adjust_lr(epoch):
-            if epoch < 100:
+            if epoch < 20:
                 return 0.003
-            if 100 <= epoch < 120:
-                return 0.0003
-            if 120 <= epoch < 150:
+            if 60 <= epoch < 80:
+                return 0.001
+            if 80 <= epoch < 120:
                 return 0.000003
-            if 150 <= epoch < 200:
+            if 100 <= epoch < 120:
                 return 0.0000003
             else:
                 return 0.00000003

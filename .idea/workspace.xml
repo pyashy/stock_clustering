@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7770eef4-fdb9-404b-be69-3abd72edeb58" name="Changes" comment="Final version">
+    <list default="true" id="7770eef4-fdb9-404b-be69-3abd72edeb58" name="Changes" comment="test notebook + experiments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/cae_test-checkpoint.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/autoencoders/datamodules/tickerdatamodule.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/datamodules/tickerdatamodule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoders/networks/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/networks/lstm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoencoders/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cae_test.ipynb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +19,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,6 +34,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="26KyLd0CmcGb5ynjBXCN9cM3hy2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -40,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Supervisor_task/sequence_clusterers-thp_baseline" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -120,6 +123,7 @@
     <MESSAGE value="First working autoencoder (convolutional)" />
     <MESSAGE value="Added lstm autoencoder (first version)" />
     <MESSAGE value="Final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
+    <MESSAGE value="test notebook + experiments" />
+    <option name="LAST_COMMIT_MESSAGE" value="test notebook + experiments" />
   </component>
 </project>
