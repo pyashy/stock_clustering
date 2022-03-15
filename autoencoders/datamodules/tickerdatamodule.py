@@ -28,7 +28,7 @@ class TickerDataset(Dataset):
     def prepare_data(self, time_period: int) -> None:
         if time_period != 0 or -1:
             self.data = np.vstack(
-                [self.data[:, time_period * i:30 * (i + 1)] for i in range(floor(self.data.shape[1] / time_period))])
+                [self.data[:, time_period * i:time_period * (i + 1)] for i in range(floor(self.data.shape[1] / time_period))])
 
     def __getitem__(self, index) -> T_co:
         return torch.tensor(self.data[index]).float().unsqueeze(0)

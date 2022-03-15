@@ -14,7 +14,7 @@ def test_conv_encoder():
 
 
 def test_lstm_encoder():
-    model = LSTMAutoEncoder(30, 1)
+    model = LSTMAutoEncoder(100, 1)
     trainer = Trainer(gpus=1, max_epochs=30)
 
     dm = TickerDataModule('..\\data\\ticker_data_Close.csv', batch_size=1, time_period=100)
