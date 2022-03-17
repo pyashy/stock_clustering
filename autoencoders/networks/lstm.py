@@ -51,6 +51,7 @@ class LSTMAutoEncoder(LightningModule):
         batch_size = x.shape[0]
         x = x.reshape((batch_size, self.seq_len, self.n_features))
         x, (hidden_n, _) = self.encoder1(x)
+        x, (hidden_n, _) = self.encoder2(x)
 
         return hidden_n[-1]
 
@@ -102,14 +103,14 @@ class LSTMAutoEncoder(LightningModule):
         def adjust_lr(epoch):
             if epoch < 20:
                 return 0.003
-            if 60 <= epoch < 80:
+            if 20 <= epoch < 50:
                 return 0.001
+            if 50 <= epoch < 80:
+                return 0.0003
             if 80 <= epoch < 120:
-                return 0.000003
-            if 100 <= epoch < 120:
-                return 0.0000003
+                return 0.00003
             else:
-                return 0.00000003
+                return 0.000003
 
         lr_scheduler = {
             "scheduler": torch.optim.lr_scheduler.LambdaLR(
