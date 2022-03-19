@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7770eef4-fdb9-404b-be69-3abd72edeb58" name="Changes" comment="Final version of autoencoders">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+    <list default="true" id="7770eef4-fdb9-404b-be69-3abd72edeb58" name="Changes" comment="Update for conv encoder (plus some bugs fixed)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/nn_test-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/nn_test-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_1/checkpoints/epoch=29-step=99329.ckpt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_1/events.out.tfevents.1647294885.DESKTOP-FUNH42V.7396.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_1/events.out.tfevents.1647296600.DESKTOP-FUNH42V.7396.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_1/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_2/checkpoints/epoch=99-step=70399.ckpt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_2/events.out.tfevents.1647296611.DESKTOP-FUNH42V.7396.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_2/events.out.tfevents.1647297417.DESKTOP-FUNH42V.7396.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_2/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_3/checkpoints/epoch=149-step=105599.ckpt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_3/events.out.tfevents.1647297423.DESKTOP-FUNH42V.7396.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_3/events.out.tfevents.1647298227.DESKTOP-FUNH42V.7396.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/lightning_logs/version_3/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/networks/cae.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/networks/cae.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/networks/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/networks/lstm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoencoders/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/autoencoders/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nn_data/ticker_data_cae.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/nn_data/ticker_data_cae.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nn_data/ticker_data_mlp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/nn_data/ticker_data_mlp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nn_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/nn_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoders/.ipynb_checkpoints/cae_test-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoencoders/cae_test.ipynb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647355138109</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update for conv encoder (plus some bugs fixed)">
+      <created>1647520586398</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647520586398</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,6 +138,7 @@
     <MESSAGE value="Final version" />
     <MESSAGE value="test notebook + experiments" />
     <MESSAGE value="Final version of autoencoders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final version of autoencoders" />
+    <MESSAGE value="Update for conv encoder (plus some bugs fixed)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update for conv encoder (plus some bugs fixed)" />
   </component>
 </project>
